@@ -1,0 +1,10 @@
+các thư viện nói chung, không chỉ reactjs
+
+-> luôn thể hiện giao diện thông qua dữ liệu
+
+-> từ dữ liệu để xử lý giao diện
+
+-> có cách nào đấy, khai báo cho react biết rằng, dữ liệu nào đó là quan trọng
+khi dữ liệu này thay đổi -> thì sẽ thực hiện cập nhật lại giao diện
+
+state

@@ -1,14 +1,20 @@
-import './App.css';
+import { useState } from "react";
 
-function App(props) {
-  console.log(props);
+const App = () => {
+  const [person, setPerson] = useState({ name: "MindX", age: 10 })
+
+  const increaseAge = () => {
+    setPerson({
+      ...person,
+      age: person.age + 1
+    });
+  }
+
   return (
-    <div className="cijs96">
-      <h1>{props.message} MindX, age: {props.age}</h1>
-      {props.hello}
-      {props.children}
+    <div>
+      <p>Hello! I'm {person.name}. I'm {person.age} years old.</p>
+      <button onClick={increaseAge}>Increase age</button>
     </div>
   )
 }
-
 export default App;
