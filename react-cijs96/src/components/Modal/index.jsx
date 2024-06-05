@@ -10,7 +10,13 @@ const Modal = (props) => {
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQneX2OwCcPMNd7RkjJtUGnZRJrAR9ciOoFrw&s" />
                 <br />
                 <div>
-                    <span>Tên pokemon: </span><input type="text" value={props.pokemon.name} />
+                    <span>Tên pokemon: </span><input type="text" value={props.pokemon.name} onChange={(e) => {
+                        const newPokemon = {
+                            ...props.pokemon,
+                            name: e.target.value
+                        }
+                        props.onChangePokemon(newPokemon);
+                    }} />
                 </div>
                 <div>
                     <span>Hệ: </span><select>
@@ -18,6 +24,7 @@ const Modal = (props) => {
                         <option value="">Nước</option>
                     </select>
                 </div>
+                <button className='save' onClick={props.onSave}>Lưu</button>
             </div>
         </div>
     )

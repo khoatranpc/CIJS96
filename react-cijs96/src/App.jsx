@@ -12,9 +12,19 @@ const App = () => {
 
   let showModal = null;
   if (crrData) {
-    showModal = <Modal pokemon={crrData} onClose={() => {
-      setCrrData(null);
-    }} />;
+    showModal = <Modal
+      pokemon={crrData}
+      onClose={() => {
+        setCrrData(null);
+      }}
+      onChangePokemon={(pokemon) => {
+        setCrrData(pokemon);
+      }}
+      onSave={() => {
+        setPokData(crrData);
+        setCrrData(null);
+      }}
+    />;
   }
   /**
    * Tư tưởng, cần phải biết được đã kích vào pokemon nào. khi nhận thấy có dữ liệu thì mới hiển thị modal
@@ -29,7 +39,7 @@ const App = () => {
   return (
     <div className="app">
       <PokemonCard name={pokData.name} image={pokData.img} onClick={() => {
-        setCrrData(data);
+        setCrrData(pokData);
       }} />
       {showModal}
     </div>
